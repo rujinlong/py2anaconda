@@ -1,0 +1,18 @@
+name: 'upload2conda'
+description: 'Upload package to anaconda'
+author: 'Jinlong Ru'
+branding:
+  icon: 'package'
+  color: 'green'
+inputs:
+  CONDADIR:
+    description: 'location of the folder contains build.sh and meta.yaml'
+    required: true
+  AnacondaToken:
+    description: 'Anaconda access Token'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.CONDADIR }}
